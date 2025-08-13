@@ -103,6 +103,17 @@
       overflow: hidden;
     }
 
+    .crisis-alert::before {
+      content: "!";
+      position: absolute;
+      top: -5px;
+      right: 20px;
+      font-size: 3rem;
+      color: var(--accent-red);
+      font-weight: bold;
+      animation: pulse 1.5s infinite;
+    }
+
     @keyframes pulse {
 
       0%,
@@ -160,12 +171,6 @@
       right: 0;
       height: 3px;
       background: linear-gradient(90deg, var(--accent-green), var(--accent-orange));
-    }
-
-    .section-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      display: block;
     }
 
     .section h3 {
@@ -378,6 +383,86 @@
       font-size: 0.9rem;
     }
 
+    .assignment-info {
+      background: linear-gradient(135deg, var(--secondary-dark) 0%, var(--code-bg) 100%);
+      border: 2px solid var(--accent-green);
+      border-radius: 16px;
+      padding: 2rem;
+      margin: 3rem 0 2rem 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .assignment-info::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-green), var(--accent-orange), var(--accent-red));
+      animation: shimmer 3s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.7;
+      }
+    }
+
+    .assignment-title {
+      color: var(--accent-green);
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .assignment-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .detail-item {
+      background: var(--primary-dark);
+      border-radius: 8px;
+      padding: 1.5rem;
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+    }
+
+    .detail-item:hover {
+      border-color: var(--accent-orange);
+      transform: translateY(-3px);
+    }
+
+    .detail-label {
+      color: var(--accent-orange);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .detail-value {
+      color: var(--text-primary);
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
     .modal-overlay {
       position: fixed;
       top: 0;
@@ -455,6 +540,10 @@
         flex-direction: column;
         align-items: center;
       }
+
+      .assignment-details {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -495,7 +584,6 @@
 
     <div class="sections-grid">
       <div class="section">
-        <!-- <span class="section-icon">🛠️</span> -->
         <h3>Emergency Toolkit</h3>
         <p>You <span class="highlight">must</span> have these tools ready at all times:</p>
         <ul class="checklist">
@@ -521,7 +609,6 @@
       </div>
 
       <div class="section">
-        <!-- <span class="section-icon">⚡</span> -->
         <h3>Immediate Actions</h3>
         <p>When production fails, you <span class="highlight">must</span> follow this timeline:</p>
 
@@ -558,7 +645,6 @@
       </div>
 
       <div class="section">
-        <!-- <span class="section-icon">💡</span> -->
         <h3>Survival Rules</h3>
         <p>Critical guidelines you <span class="highlight">must</span> follow during emergencies:</p>
 
@@ -585,7 +671,6 @@
       </div>
 
       <div class="section">
-        <!-- <span class="section-icon">⚠️</span> -->
         <h3>Critical Warnings</h3>
         <p>Things you <span class="warning">mustn't</span> do during deployment crises:</p>
 
@@ -627,10 +712,57 @@
           <div class="member-role">Backend Developer</div>
         </div>
         <div class="member">
-          <div class="member-name">Kerena Leyva ;D</div>
+          <div class="member-name">Kerena Leyva</div>
           <div class="member-role">Site Reliability Engineer</div>
         </div>
       </div>
+    </div>
+
+    <div class="assignment-info">
+      <h2 class="assignment-title">Survival Guide Project</h2>
+
+      <div class="assignment-details">
+        <div class="detail-item">
+          <div class="detail-label">Subject</div>
+          <div class="detail-value">English 9B1</div>
+        </div>
+
+        <div class="detail-item">
+          <div class="detail-label">Student</div>
+          <div class="detail-value">Fernando Emanuel Martinez Montiel</div>
+        </div>
+
+        <div class="detail-item">
+          <div class="detail-label">Program</div>
+          <div class="detail-value">9° TIDSM</div>
+        </div>
+
+        <div class="detail-item">
+          <div class="detail-label">Project Type</div>
+          <div class="detail-value">Team Presentation</div>
+        </div>
+
+        <div class="detail-item">
+          <div class="detail-label">Career Focus</div>
+          <div class="detail-value">Software Development</div>
+        </div>
+
+        <div class="detail-item">
+          <div class="detail-label">Format</div>
+          <div class="detail-value">Digital Infographic</div>
+        </div>
+      </div>
+
+      <!-- <div class="code-block" data-lang="assignment">
+        <span class="info">// Project Requirements Fulfilled:</span>
+        <span class="highlight">modal_verbs:</span> <span class="info">must, should, can, mustn't, shouldn't,
+          can't</span>
+        <span class="highlight">quantifiers:</span> <span class="info">many, some, a lot of, much, any, most</span>
+        <span class="highlight">team_members:</span> <span class="info">3</span>
+        <span class="highlight">career_connection:</span> <span class="warning">"Software Development Crisis
+          Management"</span>
+        <span class="highlight">format:</span> <span class="info">"Interactive Web Infographic"</span>
+      </div> -->
     </div>
 
     <footer class="footer">
@@ -678,22 +810,10 @@
         <span class="info">much</span> worse situations. You <span class="highlight">should</span> trust your training
         and your team.
       </p>
-
-      <p>English 9B1 - Fernando Emanuel Martinez Montiel | 9° TIDSM</p>
     </div>
   </div>
 
   <script>
-    // Smooth scrolling for better UX
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
-
     // Emergency modal functions
     function showEmergencyModal() {
       document.getElementById('emergencyModal').style.display = 'block';
@@ -787,14 +907,14 @@
       setTimeout(typeTerminalText, 1000);
     });
 
-    // Console easter egg for developers
+    // Console message for developers
     console.log(`
             ╭─────────────────────────────────────────╮
-            │  🚨 DEPLOYMENT SURVIVAL GUIDE v2.0     │
+            │  DEPLOYMENT SURVIVAL GUIDE v2.0        │
             │                                         │
-            │  Congratulations! You found the         │
-            │  developer console. This means you      │
-            │  SHOULD survive most deployment crises  │
+            │  English 9B1 - Team Project            │
+            │  Fernando Emanuel Martinez Montiel      │
+            │  9° TIDSM                              │
             │                                         │
             │  Remember: You CAN handle ANY bug!      │
             │  You just need SOME patience and        │
@@ -803,38 +923,6 @@
             │  Press Ctrl+E for emergency protocols   │
             ╰─────────────────────────────────────────╯
         `);
-
-    // Error simulation for demo (commented out for safety)
-    /*
-    function simulateProductionError() {
-        console.warn("🚨 Simulated production error detected!");
-        console.error("Database connection failed - MANY users affected!");
-        alert("Production is down! You MUST act quickly!");
-    }
-    */
-
-    // Add some interactive elements
-    let clickCount = 0;
-    document.addEventListener('click', function () {
-      clickCount++;
-      if (clickCount === 10) {
-        console.log("🎉 You've clicked 10 times! You SHOULD take a break from debugging!");
-        clickCount = 0;
-      }
-    });
-
-    // Responsive mobile menu simulation
-    function checkMobileView() {
-      if (window.innerWidth <= 768) {
-        document.body.classList.add('mobile-view');
-        console.log("📱 Mobile view detected - You CAN still debug on mobile!");
-      } else {
-        document.body.classList.remove('mobile-view');
-      }
-    }
-
-    window.addEventListener('resize', checkMobileView);
-    checkMobileView(); // Initial check
 
     // Performance monitoring simulation
     const performanceMetrics = {
@@ -848,132 +936,75 @@
       performanceMetrics.memoryUsage += (Math.random() - 0.5) * 10;
 
       if (performanceMetrics.errorRate > 15) {
-        console.warn("⚠️ High error rate detected! You SHOULD investigate immediately!");
+        console.warn("High error rate detected! You SHOULD investigate immediately!");
       }
 
       if (performanceMetrics.memoryUsage > 85) {
-        console.error("🚨 Memory usage critical! You MUST free SOME resources!");
+        console.error("Memory usage critical! You MUST free SOME resources!");
       }
     }
 
-    // Simulate monitoring every 5 seconds
-    setInterval(updatePerformanceMetrics, 5000);
+    // Simulate monitoring every 10 seconds
+    setInterval(updatePerformanceMetrics, 10000);
 
-    // Add some fun debugging messages
+    // Add some debugging tips
     const debugMessages = [
-      "💡 Pro tip: You CAN use browser dev tools to debug MANY issues!",
-      "🔍 Remember: SOME bugs are features in disguise!",
-      "⚡ Quick reminder: You SHOULD always test with MUCH real data!",
-      "🛡️ Security check: You MUST validate ALL user inputs!",
-      "📊 Performance note: You CAN optimize A LOT OF database queries!"
+      "Pro tip: You CAN use browser dev tools to debug MANY issues!",
+      "Remember: SOME bugs are features in disguise!",
+      "Quick reminder: You SHOULD always test with MUCH real data!",
+      "Security check: You MUST validate ALL user inputs!",
+      "Performance note: You CAN optimize A LOT OF database queries!"
     ];
 
     let messageIndex = 0;
     setInterval(() => {
       console.log(debugMessages[messageIndex % debugMessages.length]);
       messageIndex++;
-    }, 10000);
+    }, 15000);
 
-    // Survival score calculator
-    function calculateSurvivalScore() {
-      const factors = {
-        preparation: Math.random() * 25,
-        teamwork: Math.random() * 25,
-        knowledge: Math.random() * 25,
-        calmness: Math.random() * 25
-      };
-
-      const total = Object.values(factors).reduce((a, b) => a + b, 0);
-
-      if (total > 80) {
-        return "🏆 EXPERT - You CAN survive ANY deployment crisis!";
-      } else if (total > 60) {
-        return "⭐ ADVANCED - You SHOULD handle MOST emergencies well!";
-      } else if (total > 40) {
-        return "📈 INTERMEDIATE - You have SOME good survival skills!";
+    // Responsive mobile check
+    function checkMobileView() {
+      if (window.innerWidth <= 768) {
+        document.body.classList.add('mobile-view');
+        console.log("Mobile view detected - You CAN still debug on mobile!");
       } else {
-        return "🌱 BEGINNER - You MUST practice MORE survival techniques!";
+        document.body.classList.remove('mobile-view');
       }
     }
 
-    // Easter egg: Konami code
-    const konamiCode = [
-      'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
-      'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight',
-      'KeyB', 'KeyA'
-    ];
-    let konamiIndex = 0;
-
-    document.addEventListener('keydown', function (e) {
-      if (e.code === konamiCode[konamiIndex]) {
-        konamiIndex++;
-        if (konamiIndex === konamiCode.length) {
-          console.log("🎮 KONAMI CODE ACTIVATED!");
-          console.log("🚀 ULTIMATE DEPLOYMENT POWERS UNLOCKED!");
-          console.log("You now have UNLIMITED debugging abilities!");
-          console.log("Your survival score: " + calculateSurvivalScore());
-
-          // Add special effects
-          document.body.style.animation = 'rainbow 2s infinite';
-          setTimeout(() => {
-            document.body.style.animation = '';
-          }, 10000);
-
-          konamiIndex = 0;
-        }
-      } else {
-        konamiIndex = 0;
-      }
-    });
-
-    // Add rainbow animation
-    const rainbowStyle = document.createElement('style');
-    rainbowStyle.textContent = `
-            @keyframes rainbow {
-                0% { filter: hue-rotate(0deg); }
-                25% { filter: hue-rotate(90deg); }
-                50% { filter: hue-rotate(180deg); }
-                75% { filter: hue-rotate(270deg); }
-                100% { filter: hue-rotate(360deg); }
-            }
-        `;
-    document.head.appendChild(rainbowStyle);
-
-    // Service worker simulation for offline survival
-    if ('serviceWorker' in navigator) {
-      console.log("🔧 Service Worker available - You CAN survive offline deployments!");
-    } else {
-      console.warn("⚠️ No Service Worker - You SHOULD prepare for connectivity issues!");
-    }
+    window.addEventListener('resize', checkMobileView);
+    checkMobileView();
 
     // Final survival tips based on time of day
     function getSurvivalTipByTime() {
       const hour = new Date().getHours();
 
       if (hour >= 2 && hour <= 6) {
-        return "🌙 Late night debugging? You MUST get SOME sleep soon!";
+        return "Late night debugging? You MUST get SOME sleep soon!";
       } else if (hour >= 7 && hour <= 11) {
-        return "☀️ Morning deployment? You SHOULD have MUCH coffee ready!";
+        return "Morning deployment? You SHOULD have MUCH coffee ready!";
       } else if (hour >= 12 && hour <= 17) {
-        return "🌞 Afternoon crisis? You CAN handle it with A LOT OF focus!";
+        return "Afternoon crisis? You CAN handle it with A LOT OF focus!";
       } else {
-        return "🌆 Evening emergency? You SHOULD prepare for MANY long hours!";
+        return "Evening emergency? You SHOULD prepare for MANY long hours!";
       }
     }
 
     console.log(getSurvivalTipByTime());
 
-    // Cleanup function for good practice
-    window.deploymentSurvival = {
-      showEmergency: showEmergencyModal,
-      closeEmergency: closeEmergencyModal,
-      getSurvivalScore: calculateSurvivalScore,
-      getTipByTime: getSurvivalTipByTime
-    };
+    // Assignment completion message
+    setTimeout(() => {
+      console.log("Assignment Status: COMPLETED");
+      console.log("Modal Verbs Used: ✓ (must, should, can, mustn't, shouldn't, can't)");
+      console.log("Quantifiers Used: ✓ (many, some, a lot of, much, any, most, too many)");
+      console.log("Team Members: ✓ (3 members)");
+      console.log("Career Connection: ✓ (Software Development)");
+      console.log("Creative Design: ✓ (Interactive Web Format)");
+    }, 3000);
 
-    console.log("🎯 Deployment Survival Guide loaded successfully!");
-    console.log("💪 You now have ALL the tools you need to survive!");
-    console.log("📚 Remember: Practice makes perfect - You SHOULD test MANY scenarios!");
+    console.log("Deployment Survival Guide loaded successfully!");
+    console.log("You now have ALL the tools you need to survive!");
+    console.log("Remember: Practice makes perfect - You SHOULD test MANY scenarios!");
   </script>
 </body>
 
